@@ -144,18 +144,22 @@ public class SBinTre<T> {
 
     //OPPGAVE 3 - skal returnere første node post orden med p som rot
     private static <T> Node<T> førstePostorden(Node<T> p) {
-        while (p.venstre != null) { //Så lenge p sin venstrepeker ikke er null så skal p være p.venstre
-            p = p.venstre;
+        while (true)
+        {
+            if (p.venstre != null) p = p.venstre;
+            else if (p.høyre != null) p = p.høyre;
+            else return (Node<T>) p.verdi;
         }
-        return p;   //Returnerer p
     }
 
     //OPPGAVE 3 - skal returnere den noden som kommer etter p i postorden. Hvis p er den siste i postorden, skal metoden returnere null
     private static <T> Node<T> nestePostorden(Node<T> p) {
-        while(p.høyre != null) {
-            p = p.høyre;
+        while (true)
+        {
+            if (p.venstre != null) p = p.venstre;
+            else if (p.høyre != null) p = p.høyre;
+            else return (Node<T>) p.verdi;
         }
-        return p;
     }
 
     public void postorden(Oppgave<? super T> oppgave) {
