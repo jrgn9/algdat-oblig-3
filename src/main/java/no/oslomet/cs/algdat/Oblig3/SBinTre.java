@@ -138,17 +138,19 @@ public class SBinTre<T> {
             }
             p = cmp < 0 ? p.venstre : p.høyre;     // flytter p
         }
-        return antall;
+        return antall;  //Returnerer antall
     }
 
     public void nullstill() {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
+    //OPPGAVE 3 - skal returnere første node post orden med p som rot
     private static <T> Node<T> førstePostorden(Node<T> p) {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
+    //OPPGAVE 3 - skal returnere den noden som kommer etter p i postorden. Hvis p er den siste i postorden, skal metoden returnere null
     private static <T> Node<T> nestePostorden(Node<T> p) {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
