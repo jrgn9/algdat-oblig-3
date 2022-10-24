@@ -1,10 +1,7 @@
 package no.oslomet.cs.algdat.Oblig3;
 
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Objects;
-import java.util.StringJoiner;
+import java.util.*;
 
 public class SBinTre<T> {
     private static final class Node<T>   // en indre nodeklasse
@@ -147,7 +144,10 @@ public class SBinTre<T> {
 
     //OPPGAVE 3 - skal returnere første node post orden med p som rot
     private static <T> Node<T> førstePostorden(Node<T> p) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        while (p.venstre != null) { //Så lenge p sin venstrepeker ikke er null så skal p være p.venstre
+            p = p.venstre;
+        }
+        return p;   //Returnerer p
     }
 
     //OPPGAVE 3 - skal returnere den noden som kommer etter p i postorden. Hvis p er den siste i postorden, skal metoden returnere null
