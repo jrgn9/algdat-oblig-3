@@ -133,8 +133,12 @@ public class SBinTre<T> {
         while (p != null) { // fortsetter til p er ute av treet
             q = p;                                 // q er forelder til p
             cmp = comp.compare(verdi,p.verdi);     // bruker komparatoren
+            if (cmp == 0) { //Hvis verdien er lik p sin verdi (compare gir da 0)
+                antall++;   //Øker antall
+            }
             p = cmp < 0 ? p.venstre : p.høyre;     // flytter p
         }
+        return antall;
     }
 
     public void nullstill() {
