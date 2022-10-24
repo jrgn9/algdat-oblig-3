@@ -107,10 +107,15 @@ public class SBinTre<T> {
         return true;                             // vellykket innlegging
     }
 
+    //OPPGAVE 6
+    //Der kan du kopiere Programkode 5.2 8 d), men i tillegg må du gjøre de endringene som trengs for at pekeren forelder får korrekt verdi i alle noder etter en fjerning.
     public boolean fjern(T verdi) {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
+    //OPPGAVE 6
+    //skal fjerne alle forekomstene av verdi i treet. Husk at duplikater er tillatt. Dermed kan en og samme verdi ligge flere steder i treet.
+    // Metoden skal returnere antallet som ble fjernet. Hvis treet er tomt, skal 0 returneres
     public int fjernAlle(T verdi) {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
@@ -138,46 +143,61 @@ public class SBinTre<T> {
         return antall;  //Returnerer antall
     }
 
+    //OPPGAVE 6
+    //skal traversere (rekursivt eller iterativt) treet i en eller annen rekkefølge og sørge for at samtligepekere og nodeverdier i treet blir nullet.
+    // Det er med andre ord ikke tilstrekkelig å sette rot til null og antall til 0.
     public void nullstill() {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
     //OPPGAVE 3 - skal returnere første node post orden med p som rot
     private static <T> Node<T> førstePostorden(Node<T> p) {
-        while (true)
-        {
-            if (p.venstre != null) p = p.venstre;
-            else if (p.høyre != null) p = p.høyre;
-            else return (Node<T>) p.verdi;
+
+        while (p.venstre != null) {
+            p = p.venstre;
         }
+        return p;
     }
 
     //OPPGAVE 3 - skal returnere den noden som kommer etter p i postorden. Hvis p er den siste i postorden, skal metoden returnere null
     private static <T> Node<T> nestePostorden(Node<T> p) {
-        while (true)
-        {
-            if (p.venstre != null) p = p.venstre;
-            else if (p.høyre != null) p = p.høyre;
-            else return (Node<T>) p.verdi;
+        p = førstePostorden(p);
+        while (p.høyre != null) {
+            p = p.høyre;
         }
+        return p;
     }
 
+    //OPPGAVE 4
+    //implementer funksjonen uten bruk av rekursjon og uten bruk av hjelpevariabler som stack / queue.
+    //Du skal bruke funksjonen nestePostorden fra forrige oppgave. Start med å finne den første noden p i postorden.
+    //Deretter vil (f.eks. i en while-løkke) setningen: p = nestePostorden(p); gi den neste. Osv. til p blir null.
     public void postorden(Oppgave<? super T> oppgave) {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
+    //OPPGAVE 4
+    //Lag et rekursivt kall som traverserer treet i postorden rekkefølge.
     public void postordenRecursive(Oppgave<? super T> oppgave) {
         postordenRecursive(rot, oppgave);
     }
 
+    //OPPGAVE 4
+    //Lag et rekursivt kall som traverserer treet i postorden rekkefølge.
     private void postordenRecursive(Node<T> p, Oppgave<? super T> oppgave) {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
+    //OPPGAVE 5
+    //lag serialize som gjør om binærtreet til et array
+    //Metoden serialize skal være iterativ og må bruke en kø til å traversere treet i nivå orden. Arrayet som returneres av serialize skal inneholde verdiene i alle nodene i nivå orden.
     public ArrayList<T> serialize() {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
+    //OPPGAVE 5
+    //Lag deserialize som tar et array og gjør om til et binært søketre
+    //skal da ta arrayet fra serialize, og legge inn alle verdiene (igjen i nivå orden), og dermed gjenskape treet
     static <K> SBinTre<K> deserialize(ArrayList<K> data, Comparator<? super K> c) {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
