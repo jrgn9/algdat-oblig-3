@@ -7,6 +7,7 @@ Oppgaven er levert av følgende student:
 
 # Oppgavebeskrivelse
 
-I oppgave 1 så gikk jeg frem ved å ...
+I oppgave 1 så kopierte jeg inn programkode 5.2.3 a) fra kompendiet. Deretter la jeg inn q som foreldrenoden i nodekonstruktøren.
+Fordi som det står i kommentarene til koden, så er q forelderen til p i while-løkken.
 
 I oppgave 2 så brukte jeg en ... til å ...
