@@ -152,7 +152,10 @@ public class SBinTre<T> {
 
     //OPPGAVE 3 - skal returnere den noden som kommer etter p i postorden. Hvis p er den siste i postorden, skal metoden returnere null
     private static <T> Node<T> nestePostorden(Node<T> p) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        while(p.høyre != null) {
+            p = p.høyre;
+        }
+        return p;
     }
 
     public void postorden(Oppgave<? super T> oppgave) {
