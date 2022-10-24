@@ -122,7 +122,19 @@ public class SBinTre<T> {
     // skal returnere antall forekomster av verdi i treet. Det er tillatt med duplikater og det betyr at en verdi kan forekomme flere ganger.
     // Hvis verdi ikke er i treet (null er ikke i treet), skal metoden returnere 0.
     public int antall(T verdi) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        //Gir feilmelding om det kommer inn en nullverdi
+        Objects.requireNonNull(verdi, "Ulovlig med nullverdier!");
+
+        //Kode hentet fra programkode 5.2.3 a) fra kompendiet - https://www.cs.hioa.no/~ulfu/appolonius/kap5/2/kap52.html#5.2.3
+        Node<T> p = rot, q = null;               // p starter i roten
+        int cmp = 0;                             // hjelpevariabel
+        int antall = 0; //Variabel for å telle antall
+
+        while (p != null) { // fortsetter til p er ute av treet
+            q = p;                                 // q er forelder til p
+            cmp = comp.compare(verdi,p.verdi);     // bruker komparatoren
+            p = cmp < 0 ? p.venstre : p.høyre;     // flytter p
+        }
     }
 
     public void nullstill() {
