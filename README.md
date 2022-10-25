@@ -16,4 +16,7 @@ dvs at de to som blir sammenliknet er like, så øker antall. Til slutt returner
 **I oppgave 3** så hentet jeg først kode fra kompendiet for å finne første postorden. Jeg gjorde noen endringer i denne for å få den til å kjøre.
 Deretter brukte jeg reglene for å finne neste postorden som står i kompendie som pseudokode. Utifra den så kodet jeg nestePostorden()
 
-**I oppgave 4** 
+**I oppgave 4** så lagde jeg først en rotnode og kallet på førstePostorden() på denne for å finne første postorden. 
+Deretter kalte jeg utførOppgave() med verdien til den første noden i postorden.
+Så lagde jeg en while-løkke som kaller nestePostorden fra den første noden så lenge noden ikke er null.
+
