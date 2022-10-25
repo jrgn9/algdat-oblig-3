@@ -154,27 +154,27 @@ public class SBinTre<T> {
     private static <T> Node<T> førstePostorden(Node<T> p) {
         //Hentet fra Programkode 5.1.7 h) i kompendiet https://www.cs.hioa.no/~ulfu/appolonius/kap5/1/kap51.html#5.1.7
         while (true) {
-            if (p.venstre != null) p = p.venstre;
-            else if (p.høyre != null) p = p.høyre;
-            else return p;
+            if (p.venstre != null) p = p.venstre;   //Sjekker først om det er et venstrebarn og setter p til å være dette
+            else if (p.høyre != null) p = p.høyre;  //Hvis det ikke er et venstrebarn, men et høyrebarn så er det p sitt høyrebarn
+            else return p;  //Hvis det ikke er noen barn så er det p
         }
     }
 
     //OPPGAVE 3 - skal returnere den noden som kommer etter p i postorden. Hvis p er den siste i postorden, skal metoden returnere null
     private static <T> Node<T> nestePostorden(Node<T> p) {
         while (p != null) {
-            if (p.forelder == null) {
+            if (p.forelder == null) {   //Hvis p ikke har en forelder  så er p rotnoden og p er den siste i postorden. Oppgaven sier at dette skal returnere null
                 return null;
             }
-            else if (p == p.forelder.høyre) {
+            else if (p == p.forelder.høyre) {   //Hvis p er høyre barn til sin forelder, er forelderen den neste
                 return p.forelder;
             }
-            else if (p.forelder.venstre == p) {
-                if (p.forelder.høyre == null) {
+            else if (p.forelder.venstre == p) { //Hvis p er venstre barn til sin forelder
+                if (p.forelder.høyre == null) { //Hvis p er enebarn så er forelderen den neste
                     return p.forelder;
                 }
                 if (p.forelder.høyre != null) {
-                    return førstePostorden(p.forelder.høyre);
+                    return førstePostorden(p.forelder.høyre);   //Hvis p ikke er enebarn, så er den neste den noden som kommer først i postorden i subtreet med foreldren sin høyre som rot.
                 }
             }
         }
@@ -186,7 +186,7 @@ public class SBinTre<T> {
     //Du skal bruke funksjonen nestePostorden fra forrige oppgave. Start med å finne den første noden p i postorden.
     //Deretter vil (f.eks. i en while-løkke) setningen: p = nestePostorden(p); gi den neste. Osv. til p blir null.
     public void postorden(Oppgave<? super T> oppgave) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        Node<T> p = førstePostorden(oppgave);
     }
 
     public void postordenRecursive(Oppgave<? super T> oppgave) {
