@@ -152,20 +152,42 @@ public class SBinTre<T> {
 
     //OPPGAVE 3 - skal returnere første node post orden med p som rot
     private static <T> Node<T> førstePostorden(Node<T> p) {
-
-        while (p.venstre != null) {
-            p = p.venstre;
+        //Hentet fra Programkode 5.1.7 h) i kompendiet https://www.cs.hioa.no/~ulfu/appolonius/kap5/1/kap51.html#5.1.7
+        while (true) {
+            if (p.venstre != null) p = p.venstre;
+            else if (p.høyre != null) p = p.høyre;
+            else return (Node<T>) p.verdi;
         }
-        return p;
     }
 
     //OPPGAVE 3 - skal returnere den noden som kommer etter p i postorden. Hvis p er den siste i postorden, skal metoden returnere null
     private static <T> Node<T> nestePostorden(Node<T> p) {
-        p = førstePostorden(p);
-        while (p.høyre != null) {
-            p = p.høyre;
+       Node<T> verdi = null;
+        while (p != null) {
+/*            if (p.forelder == null) {
+
+            }
+            else */if (p == p.forelder.venstre) {
+                verdi = p.forelder;
+            }
+            else if (p.forelder.venstre == p) {
+                if (p.forelder.høyre == null) {
+                    verdi = p.forelder;
+                }
+                if (p.forelder.høyre != null) {
+                    verdi = p.forelder.høyre.venstre;
+                }
+            }
         }
-        return p;
+        return verdi;
+                /*
+        Anta at p er en node i binærtreet som ikke er null. Da gjelder flg. regel for den neste.
+        - Hvis p ikke har en forelder (p er rotnoden), så er p den siste i postorden.
+        - Hvis p er høyre barn til sin forelder f, er forelderen f den neste.
+        - Hvis p er venstre barn til sin forelder f, gjelder:
+            - Hvis p er enebarn (f.høyre er null), er forelderen f den neste.
+            - Hvis p ikke er enebarn (dvs. f.høyre er ikke null), så er den neste den noden som kommer først i postorden i subtreet med f.høyre som rot.
+        */
     }
 
     //OPPGAVE 4
@@ -176,8 +198,6 @@ public class SBinTre<T> {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
-    //OPPGAVE 4
-    //Lag et rekursivt kall som traverserer treet i postorden rekkefølge.
     public void postordenRecursive(Oppgave<? super T> oppgave) {
         postordenRecursive(rot, oppgave);
     }
