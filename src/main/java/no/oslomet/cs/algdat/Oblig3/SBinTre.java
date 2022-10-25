@@ -186,7 +186,13 @@ public class SBinTre<T> {
     //Du skal bruke funksjonen nestePostorden fra forrige oppgave. Start med å finne den første noden p i postorden.
     //Deretter vil (f.eks. i en while-løkke) setningen: p = nestePostorden(p); gi den neste. Osv. til p blir null.
     public void postorden(Oppgave<? super T> oppgave) {
-        Node<T> p = førstePostorden(oppgave);
+        Node<T> r = rot;
+        Node<T> p = førstePostorden(r);
+        oppgave.utførOppgave(p.verdi);
+
+        while(r != null) {
+            p = nestePostorden(p);
+        }
     }
 
     public void postordenRecursive(Oppgave<? super T> oppgave) {
