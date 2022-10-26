@@ -21,3 +21,5 @@ Så lagde jeg en while-løkke som kalte utførOppgave() med verdien til den før
 Deretter kaller jeg nestePostorden() fra p-noden så lenge noden ikke er null.
 postordenRecursive() lagde jeg ved at det sjekkes først om p har venstrebarn og i så fall kaller på seg selv med venstrebarn og oppgave.
 Hvis p har et høyrebarn (og ikke venstre) så kaller den på seg selv med høyrebarn og oppgave. Så kaller den på oppgave med verdien til p
+
+# OBS: Kommentert ut test for oppgave 5 og 6 i main og laget egen branch for å jobbe med oppgave 5 og 6
