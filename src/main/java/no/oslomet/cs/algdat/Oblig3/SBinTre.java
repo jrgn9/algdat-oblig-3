@@ -203,12 +203,13 @@ public class SBinTre<T> {
     //OPPGAVE 4
     //Lag et rekursivt kall som traverserer treet i postorden rekkefølge.
     private void postordenRecursive(Node<T> p, Oppgave<? super T> oppgave) {
-        Node<T> r = rot;
-        p = førstePostorden(r);
-        while (p.forelder != null) {
-            oppgave.utførOppgave(p.verdi);
-            postordenRecursive(rot, oppgave);
+        if (p.venstre != null) {
+            postordenRecursive(p.venstre, oppgave);
         }
+        if (p.høyre != null) {
+            postordenRecursive(p.høyre, oppgave);
+        }
+        oppgave.utførOppgave(p.verdi);
     }
 
     //OPPGAVE 5
