@@ -109,16 +109,16 @@ public class SBinTre<T> {
 
     //OPPGAVE 6
     //Der kan du kopiere Programkode 5.2 8 d), men i tillegg må du gjøre de endringene som trengs for at pekeren forelder får korrekt verdi i alle noder etter en fjerning.
-    public boolean fjern(T verdi) {
+/*    public boolean fjern(T verdi) {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
-    }
+    }*/
 
     //OPPGAVE 6
     //skal fjerne alle forekomstene av verdi i treet. Husk at duplikater er tillatt. Dermed kan en og samme verdi ligge flere steder i treet.
     // Metoden skal returnere antallet som ble fjernet. Hvis treet er tomt, skal 0 returneres
-    public int fjernAlle(T verdi) {
+/*    public int fjernAlle(T verdi) {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
-    }
+    }*/
 
     //OPPGAVE 2
     // skal returnere antall forekomster av verdi i treet. Det er tillatt med duplikater og det betyr at en verdi kan forekomme flere ganger.
@@ -143,12 +143,12 @@ public class SBinTre<T> {
         return antall;  //Returnerer antall
     }
 
-    //OPPGAVE 6
+/*    //OPPGAVE 6
     //skal traversere (rekursivt eller iterativt) treet i en eller annen rekkefølge og sørge for at samtligepekere og nodeverdier i treet blir nullet.
     // Det er med andre ord ikke tilstrekkelig å sette rot til null og antall til 0.
     public void nullstill() {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
-    }
+    }*/
 
     //OPPGAVE 3 - skal returnere første node post orden med p som rot
     private static <T> Node<T> førstePostorden(Node<T> p) {
@@ -212,6 +212,7 @@ public class SBinTre<T> {
         oppgave.utførOppgave(p.verdi);  //Kaller på oppgave med verdien til p
     }
 
+/*
     //OPPGAVE 5
     //lag serialize som gjør om binærtreet til et array
     //Metoden serialize skal være iterativ og må bruke en kø til å traversere treet i nivå orden. Arrayet som returneres av serialize skal inneholde verdiene i alle nodene i nivå orden.
@@ -225,6 +226,7 @@ public class SBinTre<T> {
     static <K> SBinTre<K> deserialize(ArrayList<K> data, Comparator<? super K> c) {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
+*/
 
 
 } // ObligSBinTre
