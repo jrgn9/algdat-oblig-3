@@ -161,22 +161,21 @@ public class SBinTre<T> {
 
     //OPPGAVE 3 - skal returnere den noden som kommer etter p i postorden. Hvis p er den siste i postorden, skal metoden returnere null
     private static <T> Node<T> nestePostorden(Node<T> p) {
-        while (true) {
-            if (p.forelder == null) {   //Hvis p ikke har en forelder  så er p rotnoden og p er den siste i postorden. Oppgaven sier at dette skal returnere null
-                return null;
-            }
-            else if (p == p.forelder.høyre) {   //Hvis p er høyre barn til sin forelder, er forelderen den neste
+        if (p.forelder == null) {   //Hvis p ikke har en forelder  så er p rotnoden og p er den siste i postorden. Oppgaven sier at dette skal returnere null
+            return null;
+        }
+        else if (p == p.forelder.høyre) {   //Hvis p er høyre barn til sin forelder, er forelderen den neste
+            return p.forelder;
+        }
+        else if (p.forelder.venstre == p) { //Hvis p er venstre barn til sin forelder
+            if (p.forelder.høyre == null) { //Hvis p er enebarn så er forelderen den neste
                 return p.forelder;
             }
-            else if (p.forelder.venstre == p) { //Hvis p er venstre barn til sin forelder
-                if (p.forelder.høyre == null) { //Hvis p er enebarn så er forelderen den neste
-                    return p.forelder;
-                }
-                if (p.forelder.høyre != null) {
-                    return førstePostorden(p.forelder.høyre);   //Hvis p ikke er enebarn, så er den neste den noden som kommer først i postorden i subtreet med foreldren sin høyre som rot.
-                }
+            if (p.forelder.høyre != null) {
+                return førstePostorden(p.forelder.høyre);   //Hvis p ikke er enebarn, så er den neste den noden som kommer først i postorden i subtreet med foreldren sin høyre som rot.
             }
         }
+        return null;
     }
 
     //OPPGAVE 4
