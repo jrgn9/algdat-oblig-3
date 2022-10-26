@@ -187,7 +187,7 @@ public class Oblig3Test {
     }  // slutt på Oppgave 4
 
 
-    // OPPGAVE 5 ////////////////////////////////////////////////
+/*    // OPPGAVE 5 ////////////////////////////////////////////////
     @org.junit.jupiter.api.Test
     void oppgave5() {
         SBinTre<Integer> tre =
@@ -393,6 +393,6 @@ public class Oblig3Test {
         }
         assertEquals(antallFeil, 0);
     }  // slutt på Oppgave 5
-
+*/
 
 } // Oblig3Test
