@@ -186,12 +186,12 @@ public class SBinTre<T> {
     //Du skal bruke funksjonen nestePostorden fra forrige oppgave. Start med å finne den første noden p i postorden.
     //Deretter vil (f.eks. i en while-løkke) setningen: p = nestePostorden(p); gi den neste. Osv. til p blir null.
     public void postorden(Oppgave<? super T> oppgave) {
-        Node<T> r = rot;
-        Node<T> p = førstePostorden(r);
+        Node<T> r = rot;    //Lager en rotnode
+        Node<T> p = førstePostorden(r); //Kaller på førstePostorden() på rot for å finne første postorden til node p
 
-        while(p != null) {
-            oppgave.utførOppgave(p.verdi);
-            p = nestePostorden(p);
+        while(p != null) {  //While-løkke som fortsetter så lenge p ikke er null (til rotnoden)
+            oppgave.utførOppgave(p.verdi);  //Utfører oppgaven på p sin verdi for hver gang
+            p = nestePostorden(p);  //Kaller p på nestePostorden() for å finne denne
         }
 
     }
@@ -203,8 +203,10 @@ public class SBinTre<T> {
     //OPPGAVE 4
     //Lag et rekursivt kall som traverserer treet i postorden rekkefølge.
     private void postordenRecursive(Node<T> p, Oppgave<? super T> oppgave) {
-        oppgave.utførOppgave(p.verdi);
+        Node<T> r = rot;
+        p = førstePostorden(r);
         while (p.forelder != null) {
+            oppgave.utførOppgave(p.verdi);
             postordenRecursive(rot, oppgave);
         }
     }
