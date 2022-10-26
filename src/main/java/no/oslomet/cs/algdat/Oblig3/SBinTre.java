@@ -129,7 +129,7 @@ public class SBinTre<T> {
 
         //Kode hentet fra programkode 5.2.3 a) fra kompendiet - https://www.cs.hioa.no/~ulfu/appolonius/kap5/2/kap52.html#5.2.3
         Node<T> p = rot;               // p starter i roten
-        int cmp = 0;                             // hjelpevariabel
+        int cmp;                             // hjelpevariabel
         int antall = 0; //Variabel for å telle antall
 
         while (p != null) { // fortsetter til p er ute av treet
@@ -161,7 +161,7 @@ public class SBinTre<T> {
 
     //OPPGAVE 3 - skal returnere den noden som kommer etter p i postorden. Hvis p er den siste i postorden, skal metoden returnere null
     private static <T> Node<T> nestePostorden(Node<T> p) {
-        while (p != null) {
+        while (true) {
             if (p.forelder == null) {   //Hvis p ikke har en forelder  så er p rotnoden og p er den siste i postorden. Oppgaven sier at dette skal returnere null
                 return null;
             }
@@ -177,7 +177,6 @@ public class SBinTre<T> {
                 }
             }
         }
-        return null;
     }
 
     //OPPGAVE 4
