@@ -19,4 +19,5 @@ Deretter brukte jeg reglene for å finne neste postorden som står i kompendie s
 **I oppgave 4** så lagde jeg først en rotnode og kallet på førstePostorden() på denne for å finne første postorden.
 Så lagde jeg en while-løkke som kalte utførOppgave() med verdien til den første noden i postorden.
 Deretter kaller jeg nestePostorden() fra p-noden så lenge noden ikke er null.
-postordenRecursive() lagde jeg ved å....
+postordenRecursive() lagde jeg ved at det sjekkes først om p har venstrebarn og i så fall kaller på seg selv med venstrebarn og oppgave.
+Hvis p har et høyrebarn (og ikke venstre) så kaller den på seg selv med høyrebarn og oppgave. Så kaller den på oppgave med verdien til p
