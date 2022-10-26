@@ -156,7 +156,7 @@ public class SBinTre<T> {
         while (true) {
             if (p.venstre != null) p = p.venstre;   //Sjekker først om det er et venstrebarn og setter p til å være dette
             else if (p.høyre != null) p = p.høyre;  //Hvis det ikke er et venstrebarn, men et høyrebarn så er det p sitt høyrebarn
-            else return p;  //Hvis det ikke er noen barn så er det p
+            else return p;  //Hvis det ikke er noen barn så er p første postorden
         }
     }
 
@@ -190,15 +190,10 @@ public class SBinTre<T> {
         Node<T> p = førstePostorden(r);
 
         while(p != null) {
-            if (p.venstre != null) {
-                nestePostorden(p.venstre);
-            }
-            if (p.høyre != null) {
-                nestePostorden(p.høyre);
-            }
-            return;
+            oppgave.utførOppgave(p.verdi);
+            p = nestePostorden(p);
         }
-        oppgave.utførOppgave(p.verdi);
+
     }
 
     public void postordenRecursive(Oppgave<? super T> oppgave) {
@@ -208,6 +203,7 @@ public class SBinTre<T> {
     //OPPGAVE 4
     //Lag et rekursivt kall som traverserer treet i postorden rekkefølge.
     private void postordenRecursive(Node<T> p, Oppgave<? super T> oppgave) {
+        oppgave.utførOppgave(p.verdi);
         while (p.forelder != null) {
             postordenRecursive(rot, oppgave);
         }
