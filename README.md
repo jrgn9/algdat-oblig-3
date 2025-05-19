@@ -4,6 +4,9 @@ Denne oppgaven er en innlevering i Algoritmer og Datastrukturer.
 Oppgaven er levert av følgende student:
 * Jørgen Skontorp, S364516, s364516@oslomet.no
 
+> ## ⚠️ Migrated to Codeberg
+>
+> This project has [migrated to Codeberg](https://codeberg.org/jrgn9/algdat-oblig-3).
 
 # Oppgavebeskrivelse
 
